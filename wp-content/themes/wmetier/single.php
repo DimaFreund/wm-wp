@@ -17,6 +17,37 @@ global $post;
 
     <!-- dialog itself, mfp-hide class is required to make dialog hidden -->
 
+<?php $args  = array(
+	'posts_per_page'   => 1,
+	'offset'           => 0,
+	'category_name'    => '',
+	'orderby'          => 'date',
+	'order'            => 'DESC',
+	'include'          => '',
+	'exclude'          => '',
+	'meta_key'         => 'отображать_на_странице_сервисов',
+	'meta_value'       => '1',
+	'post_type'        => 'promo_cod',
+	'post_mime_type'   => '',
+	'post_parent'      => '',
+	'author'           => '',
+	'author_name'      => '',
+	'post_status'      => 'publish',
+	'suppress_filters' => true,
+	'fields'           => '',
+
+);
+$posts_array = get_posts( $args ); ?>
+<pre></pre>
+
+    <div class="header_bonus">
+        <p>Special offer for new customers: 5% OFF your first order! Use coupon: <span><?= $posts_array[0]->post_title; ?></span></p>
+        <button class="header_bonus_close">
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
 
     <main class="serviceSingle-page-content single-article">
         <div class="wrapper">
@@ -126,11 +157,22 @@ global $post;
                 <div class="sidebar">
                     <?php get_template_part( 'template-parts/content', 'sidebar-guarantes' ); ?>
                     <?php get_template_part( 'template-parts/content', 'about-list' ); ?>
+                    <div class="aside_subscribe">
+                        <h3>Want to get more?</h3>
+                        <hr>
+                        <p>Subscribe to recieve discount promos <br>and individual special offers</p>
+                        <?= do_shortcode('[mc4wp_form id="229"]'); ?>
+                        
+                    </div>
                 </div>
             </div>
 
         </div>
         <button class="btn-to-top"></button>
+        <div class="super_bottom_order">
+            <p>Just place an order with us and make sure we provide qualified help.</p>
+            <a href="<?php the_permalink(23); ?>">order now</a>
+        </div>
     </main>
 
 

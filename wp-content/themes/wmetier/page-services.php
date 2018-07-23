@@ -87,7 +87,7 @@ get_header(); ?>
 
 <?php foreach ( $categoryId as $category ) { ?>
     <div class="services_aside_header">
-        <h4><?= get_category( $category )->name; ?></h4>
+        <h4><a href="<?= get_category_link( $item ); ?>"><?= get_category( $category )->name; ?></a></h4>
     </div>
 	<?php $args  = array(
 		'posts_per_page'   => 5,

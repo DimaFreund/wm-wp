@@ -189,6 +189,8 @@ function register_order_settings() {
     register_setting( 'my-cool-plugin-settings-group', 'option_order_5h' );
 }
 
+
+
 function my_cool_plugin_settings_page() {
     ?>
 
@@ -343,19 +345,101 @@ function set_html_content_type() {
 }
 
 
-add_action( 'init', function(){
+//add_action( 'init', function(){
+//    if(isset($_POST['amount-new-order'])) {
+//        $order = new Orders();
+//        $order->NewOrder();
+//        wp_redirect(get_permalink(92));
+//        exit;
+//    }
+//    if(isset($_POST['amount-send-email-file'])) {
+//        add_filter( 'wp_mail_content_type', 'set_html_content_type' );
+//        wp_mail($_POST['email-user'],'Задание', '<a href="'.$_POST['puth-file'].'">Результат</a>',array($_POST['puth-file']));
+//        remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
+//
+//
+//    }
+//
+//});
+
+
+
+
+add_action('init', 'register_post_types_promo_cod');
+function register_post_types_promo_cod(){
+	register_post_type('promo_cod', array(
+		'label'  => null,
+		'labels' => array(
+			'name'               => 'Промокоды', // основное название для типа записи
+			'singular_name'      => 'Промокод', // название для одной записи этого типа
+			'add_new'            => 'Добавить промокод', // для добавления новой записи
+			'add_new_item'       => 'Добавление промокода', // заголовка у вновь создаваемой записи в админ-панели.
+			'edit_item'          => 'Редактирование промокода', // для редактирования типа записи
+			'new_item'           => 'Новий промокод', // текст новой записи
+			'view_item'          => 'Смотреть промокод', // для просмотра записи этого типа.
+			'search_items'       => 'Искать промокод', // для поиска по этим типам записи
+			'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+			'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+			'parent_item_colon'  => '', // для родителей (у древовидных типов)
+			'menu_name'          => 'Промокоды', // название меню
+		),
+		'description'         => '',
+		'public'              => true,
+		'publicly_queryable'  => null, // зависит от public
+		'exclude_from_search' => null, // зависит от public
+		'show_ui'             => null, // зависит от public
+		'show_in_menu'        => null, // показывать ли в меню адмнки
+		'show_in_admin_bar'   => null, // по умолчанию значение show_in_menu
+		'show_in_nav_menus'   => null, // зависит от public
+		'show_in_rest'        => null, // добавить в REST API. C WP 4.7
+		'rest_base'           => null, // $post_type. C WP 4.7
+		'menu_position'       => null,
+		'menu_icon'           => null,
+		//'capability_type'   => 'post',
+		//'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
+		//'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
+		'hierarchical'        => false,
+		'supports'            => array('title','editor'), // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+		'taxonomies'          => array(),
+		'has_archive'         => false,
+		'rewrite'             => true,
+		'query_var'           => true,
+	) );
+}
+
+add_action( 'wp_ajax_my_action', 'my_action_callback' );
+function my_action_callback() {
+	$whatever =  $_POST['promo'] ;
+
+	$promoObject = get_page_by_title($whatever, OBJECT, 'promo_cod');
+    $promoCod = get_field('procent', $promoObject->ID);
+    echo $promoCod;
+
+	wp_die(); // выход нужен для того, чтобы в ответе не было ничего лишнего, только то что возвращает функция
+}
+
+function auto_login_new_user( $user_id ) {
+	wp_set_current_user($user_id);
+	wp_set_auth_cookie($user_id);
+	$order = new Orders();
+	$order->NewOrder();
+	// You can change home_url() to the specific URL,such as
+	//wp_redirect( 'http://www.wpcoke.com' );
+	wp_redirect( get_permalink(85) );
+	exit;
+}
+add_action( 'user_register', 'auto_login_new_user' );
+
+
+add_action( 'wp_login', function( $user_email){
     if(isset($_POST['amount-new-order'])) {
-        $order = new Orders();
-        $order->NewOrder();
-        wp_redirect(get_permalink(92));
-        exit;
+	    $user  = get_user_by( 'email', $user_email );
+	    if(empty($user)) {
+	        $user = get_user_by('login', $user_email);
+        }
+	    $order = new Orders();
+	    $order->NewOrder( $user->ID );
+	    wp_redirect( get_permalink( 85 ) );
+	    exit;
     }
-    if(isset($_POST['amount-send-email-file'])) {
-        add_filter( 'wp_mail_content_type', 'set_html_content_type' );
-        wp_mail($_POST['email-user'],'Задание', '<a href="'.$_POST['puth-file'].'">Результат</a>',array($_POST['puth-file']));
-        remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
-
-
-    }
-
-});
+} );

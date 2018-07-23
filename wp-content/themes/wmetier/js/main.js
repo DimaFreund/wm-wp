@@ -684,26 +684,49 @@ $(document).ready(function () {
 // Order setings price
 
 if ($('#page-order-options').length) {
+
     $('.change-price ul li label').on('click', function () {
         var changeElement = ($(this).closest('.col').attr('id'));
         setTimeout(function () {
             changeFields(changeElement);
         }, 1)
 
-    })
+    });
+
+    $('.category-type ul li label').on('click', function() {
+        var number, counter = 0;
+        setTimeout(function () {
+            number = $('.category-type ul li').index($('.category-type input[type="radio"]:checked').parent());
+            $('.can-disables .select-section').each(function () {
+                if(counter != number) {
+                    $(this).children().prop('disabled', true);
+                } else {
+                    $(this).children().prop('disabled', false);
+                }
+
+                counter++;
+            })
+        }, 1);
+    });
 
     $('.counter').on('click', function () {
         multiplexPage($(this).children('input').val());
         document.cookie = 'countPage=' + $(this).children('input').val() + ';path=/;';
-    })
+    });
 
     $('#fieldCount').on('change', function () {
         multiplexPage($(this).val());
-    })
+    });
+
+    $('#select_spacing').on('change', function () {
+        $('.spacingWordsCounter').html($(this).val());
+        multiplexPage($('#fieldCount').val());
+    });
 
     function multiplexPage(value) {
+        var mod = $('.spacingWordsCounter').html();
         var wordfield = $('.numberWordsCounter');
-        wordfield.html(475 * value);
+        wordfield.html(mod * value);
         changeFields("level-dificult");
     }
 
@@ -717,10 +740,10 @@ if ($('#page-order-options').length) {
         var style = $('#style-work ul li').index($('#style-work input[type="radio"]:checked').parent());
         var table = JSON.parse($('#table-auto-price').val());
         var page = $('#fieldCount').val();
-        console.log(table);
+        var spacing = $('.spacingWordsCounter').html()/275;
         if (changeElement == 'level-dificult') {
             for (var i = 0; i < table.length; i++) {
-                $('#price-work ul li').eq(table.length - i - 1).children().children('.title').html(table[i][level] * page);
+                $('#price-work ul li').eq(table.length - i - 1).children().children('.title').html(table[i][level] * page * spacing);
             }
         }
         if (changeElement == 'deadline' || changeElement == 'level-dificult') {
@@ -741,21 +764,69 @@ if ($('#page-order-options').length) {
         document.cookie = 'style-writing-value=' + $('#style-work input[type="radio"]').eq($('#style-work ul li').index($('#style-work input[type="radio"]:checked').parent())).attr('id') + ';path=/;';
         document.cookie = 'price-value=' + $('#price-work ul li').eq($('#price-work ul li').index($('#price-work input[type="radio"]:checked').parent())).children().children('.title').html() + ';path=/;';
         deadline = $('#deadline ul li').index($('#deadline input[type="radio"]:checked').parent());
-        if (deadline && level && page) {
-            $('.total-price .res').html(table[deadline][level] * page);
+        if (deadline && page) {
+            $('#start_price').html(table[deadline][level] * page *spacing);
         }
+        generateFinalyPrice();
     }
 
+
+    generateFinalyPrice();
+
+    function generateFinalyPrice(basePrice) {
+        if(!basePrice) {
+            basePrice = $('#start_price').html();
+        }
+        basePrice = parseInt(basePrice);
+        var bonusPage = $('#bonus-page').prop('checked');
+        var checkProfessional = $('#check-professional').prop('checked');
+        var plagiatReport = $('#plagiat-report').prop('checked');
+        var specialWriter = $('#special-writer').prop('checked');
+        var discount = $('#hidden-for-discount').val();
+        var page = $('#fieldCount').val();
+        var spacing = $('.spacingWordsCounter').html()/275;
+
+        if(bonusPage) {
+            basePrice += basePrice/(page*spacing);
+        }
+        if(checkProfessional) {
+            basePrice += basePrice*0.7;
+        }
+        if(plagiatReport) {
+            basePrice += 9.99;
+        }
+        if(specialWriter) {
+            basePrice += basePrice*0.1;
+        }
+        if(discount) {
+            basePrice -= basePrice*discount/100;
+        }
+        $('#finally-price').html(basePrice.toFixed(2));
+
+        $('#hidden-finally-price').val(basePrice.toFixed(2));
+
+    }
+
+    $('.input_customized input').on('change', function() {
+       generateFinalyPrice();
+    });
+
     $('input, select, textarea').on('change', function () {
-
-
         document.cookie = $(this).attr('name') + '=' + $(this).val() + ';path=/;';
-    })
+    });
+    $('input[type=checkbox]').on('change', function () {
+        if($(this).prop('checked')) {
+            document.cookie = $(this).attr('name') + '=' + 'on' +';path=/;';
+        } else {
+            document.cookie = $(this).attr('name') + '=' + 'off' +';path=/;';
+        }
+    });
 
 
     $('input, select, textarea').each(function () {
         var name = $(this).attr('name');
         if (name) {
+            console.log(name + '---' + getCookie(name));
             var cook = getCookie(name);
             if (cook) {
                 if (name == "level-dificult") {
@@ -767,13 +838,20 @@ if ($('#page-order-options').length) {
                 else if (name == "style-writing") {
                     $('#style-work input[type="radio"]').eq(cook).prop('checked', true);
                 }
+                else if (cook == "on") {
+                    $(this).prop( "checked", true );
+                }
                 else {
 
                     $(this).val(getCookie(name));
                 }
+                if( name == 'type-task-content') {
+                    $('.spacingWordsCounter').html(cook);
+                    $('.numberWordsCounter').html(cook);
+                }
             }
         }
-    })
+    });
 
     changeFields('level-dificult');
 
@@ -786,6 +864,27 @@ function getCookie(name) {
     ));
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
+
+$('#check_promo').on('click', function () {
+    var field = $('#promocod');
+    var data = {
+        action: 'my_action',
+        promo:  field.val(),
+    };
+    jQuery.post( '/wp-admin/admin-ajax.php', data, function(response) {
+        if(response != '') {
+            console.log(response);
+            $('#hidden-for-discount').val(response);
+            field.css('border', '2px solid #60ff60');
+        } else {
+            $('#hidden-for-discount').val(0);
+            field.css('border', '2px solid red');
+        }
+        generateFinalyPrice();
+    });
+    return false;
+});
+
 
 
 // step 2 orders

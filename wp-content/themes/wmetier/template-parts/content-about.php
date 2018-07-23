@@ -6,9 +6,9 @@
     <ul>
         <?php
         $list = get_field('benefits', 8);
-        foreach ($list as $item) { ?>
-            <li class="about-inf-item"><?php echo $item['title']; ?></li>
-        <?php } ?>
+//        foreach ($list as $item) { ?>
+<!--            <li class="about-inf-item">--><?php //echo $item['title']; ?><!--</li>-->
+<!--        --><?php //} ?>
 
 
     </ul>

@@ -26,13 +26,7 @@ get_header(); ?>
             <div class="content-wrapper">
                 <div class="content">
 
-                    <div class="custom-registration-title">
-                        Sign up social network
-                    </div>
 
-                    <div class="custom-registration-title">
-                        Or...
-                    </div>
 
                     <?php dynamic_sidebar('for_registr'); ?>
 

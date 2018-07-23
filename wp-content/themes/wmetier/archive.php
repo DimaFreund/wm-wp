@@ -58,7 +58,7 @@ get_header(); ?>
                     <a href="<?= the_permalink( 23 ); ?>" class="pink-btn">Order now</a>
                     <div class="collapse-section services_single_collapse_section">
 						<?php $args  = array(
-							'posts_per_page'   => 5,
+							'posts_per_page'   => -1,
 							'offset'           => 0,
 							'category'         => $term->term_id,
 							'category_name'    => '',

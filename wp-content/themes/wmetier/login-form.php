@@ -23,11 +23,13 @@ Theme My Login will always look in your theme's directory first, before using th
     <div class="row-btns">
         <?php if(is_page(85)) { ?>
         <a href="<?php echo get_permalink(23); ?>" class="btn-transp-withoutBorder">Back to step one</a>
+            <input type="hidden" name="amount-new-order">
         <?php } ?>
         <input type="submit" name="wp-submit" id="wp-submit<?php $template->the_instance(); ?>" value="log in" class="pink-btn" />
         <input type="hidden" name="redirect_to" value="<?php $template->the_redirect_url( 'login' ); ?>" />
         <input type="hidden" name="instance" value="<?php $template->the_instance(); ?>" />
         <input type="hidden" name="action" value="login" />
+
     </div>
 </form>
 <?php $template->the_action_links( array( 'login' => false ) ); ?>
