@@ -167,32 +167,32 @@ add_action('admin_menu', 'order_settings_create_menu');
 
 function order_settings_create_menu() {
 
-    //create new top-level menu
-    add_menu_page('Цены', 'Цены', 'administrator', 'order_settings', 'my_cool_plugin_settings_page', 'dashicons-admin-generic', 6);
+	//create new top-level menu
+	add_menu_page('Цены', 'Цены', 'administrator', 'order_settings', 'my_cool_plugin_settings_page', 'dashicons-admin-generic', 6);
 
-    //call register settings function
-    add_action( 'admin_init', 'register_order_settings' );
+	//call register settings function
+	add_action( 'admin_init', 'register_order_settings' );
 }
 
 
 function register_order_settings() {
-    //register our settings
+	//register our settings
 
 
-    register_setting( 'my-cool-plugin-settings-group', 'option_order_level' );
-    register_setting( 'my-cool-plugin-settings-group', 'option_order_14d' );
-    register_setting( 'my-cool-plugin-settings-group', 'option_order_5d' );
-    register_setting( 'my-cool-plugin-settings-group', 'option_order_48h' );
-    register_setting( 'my-cool-plugin-settings-group', 'option_order_24h' );
-    register_setting( 'my-cool-plugin-settings-group', 'option_order_16h' );
-    register_setting( 'my-cool-plugin-settings-group', 'option_order_8h' );
-    register_setting( 'my-cool-plugin-settings-group', 'option_order_5h' );
+	register_setting( 'my-cool-plugin-settings-group', 'option_order_level' );
+	register_setting( 'my-cool-plugin-settings-group', 'option_order_14d' );
+	register_setting( 'my-cool-plugin-settings-group', 'option_order_5d' );
+	register_setting( 'my-cool-plugin-settings-group', 'option_order_48h' );
+	register_setting( 'my-cool-plugin-settings-group', 'option_order_24h' );
+	register_setting( 'my-cool-plugin-settings-group', 'option_order_16h' );
+	register_setting( 'my-cool-plugin-settings-group', 'option_order_8h' );
+	register_setting( 'my-cool-plugin-settings-group', 'option_order_5h' );
 }
 
 
 
 function my_cool_plugin_settings_page() {
-    ?>
+	?>
 
 
 
@@ -213,20 +213,20 @@ function my_cool_plugin_settings_page() {
                 </tr>
                 </thead>
                 <tbody style="background: #ccc; text-align: center;">
-                <?php
-                $days = json_decode(get_option('all_time_order'));
+				<?php
+				$days = json_decode(get_option('all_time_order'));
 
-                foreach($days as $day) {
-                    $column = json_decode(get_option($day));
-                    ?>
+				foreach($days as $day) {
+					$column = json_decode(get_option($day));
+					?>
                     <tr>
-                        <?php for($count = 0; $count < 6; $count++) { ?>
+						<?php for($count = 0; $count < 6; $count++) { ?>
                             <td><input <?php if($count==0) echo 'readonly'; ?> type="text" value="<?php echo $column[$count]; ?>"></td>
-                        <?php } ?>
+						<?php } ?>
                     </tr>
 
                     <input value="<?php echo esc_attr(get_option($day)); ?>" name="<?php echo $day; ?>" type="hidden">
-                <?php } ?>
+				<?php } ?>
                 </tbody>
             </table>
 
@@ -251,11 +251,11 @@ function my_cool_plugin_settings_page() {
 
 
 
-            <?php settings_fields( 'my-cool-plugin-settings-group' ); ?>
-            <?php do_settings_sections( 'my-cool-plugin-settings-group' ); ?>
+			<?php settings_fields( 'my-cool-plugin-settings-group' ); ?>
+			<?php do_settings_sections( 'my-cool-plugin-settings-group' ); ?>
 
 
-            <?php submit_button(); ?>
+			<?php submit_button(); ?>
 
         </form>
     </div>
@@ -276,24 +276,24 @@ require_once locate_template( '/func/ListTableShow.php' );
 
 add_action( 'widgets_init', 'register_my_widgets_login' );
 function register_my_widgets_login(){
-    register_sidebar( array(
-        'name'          => "For login",
-        'id'            => "for_login",
-    ) );
+	register_sidebar( array(
+		'name'          => "For login",
+		'id'            => "for_login",
+	) );
 }
 
 add_action( 'widgets_init', 'register_my_widgets_register' );
 function register_my_widgets_register(){
-    register_sidebar( array(
-        'name'          => "For registration",
-        'id'            => "for_registr",
-    ) );
+	register_sidebar( array(
+		'name'          => "For registration",
+		'id'            => "for_registr",
+	) );
 }
 
 
 
 if(!current_user_can( 'manage_options' )){
-    add_filter('show_admin_bar', '__return_false');
+	add_filter('show_admin_bar', '__return_false');
 }
 
 
@@ -302,20 +302,20 @@ if(!current_user_can( 'manage_options' )){
 
 
 function true_image_uploader_field( $name, $value = '', $w = 115, $h = 90) {
-    $default = get_stylesheet_directory_uri() . '/img/no-image.png';
-    $title = "";
-    if($value != 0) {
-        $title = get_post($value);
-        $title = $title->post_title;
-    }
+	$default = get_stylesheet_directory_uri() . '/img/no-image.png';
+	$title = "";
+	if($value != 0) {
+		$title = get_post($value);
+		$title = $title->post_title;
+	}
 
-    if( $value ) {
-        $image_attributes = wp_get_attachment_image_src( $value, array($w, $h) );
-        $src = $image_attributes[0];
-    } else {
-        $src = $default;
-    }
-    echo '
+	if( $value ) {
+		$image_attributes = wp_get_attachment_image_src( $value, array($w, $h) );
+		$src = $image_attributes[0];
+	} else {
+		$src = $default;
+	}
+	echo '
 	<div>
 		<div>
 		    <label id="for-title-name" for="title">'.$title.'</label>
@@ -328,20 +328,20 @@ function true_image_uploader_field( $name, $value = '', $w = 115, $h = 90) {
 }
 
 function true_include_myuploadscript() {
-    // у вас в админке уже должен быть подключен jQuery, если нет - раскомментируйте следующую строку:
-    // wp_enqueue_script('jquery');
-    // дальше у нас идут скрипты и стили загрузчика изображений WordPress
-    if ( ! did_action( 'wp_enqueue_media' ) ) {
-        wp_enqueue_media();
-    }
-    // само собой - меняем admin.js на название своего файла
-    wp_enqueue_script( 'myuploadscript', get_stylesheet_directory_uri() . '/admin.js', array('jquery'), null, false );
+	// у вас в админке уже должен быть подключен jQuery, если нет - раскомментируйте следующую строку:
+	// wp_enqueue_script('jquery');
+	// дальше у нас идут скрипты и стили загрузчика изображений WordPress
+	if ( ! did_action( 'wp_enqueue_media' ) ) {
+		wp_enqueue_media();
+	}
+	// само собой - меняем admin.js на название своего файла
+	wp_enqueue_script( 'myuploadscript', get_stylesheet_directory_uri() . '/admin.js', array('jquery'), null, false );
 }
 
 add_action( 'admin_enqueue_scripts', 'true_include_myuploadscript' );
 
 function set_html_content_type() {
-    return 'text/html';
+	return 'text/html';
 }
 
 
@@ -412,8 +412,8 @@ function my_action_callback() {
 	$whatever =  $_POST['promo'] ;
 
 	$promoObject = get_page_by_title($whatever, OBJECT, 'promo_cod');
-    $promoCod = get_field('procent', $promoObject->ID);
-    echo $promoCod;
+	$promoCod = get_field('procent', $promoObject->ID);
+	echo $promoCod;
 
 	wp_die(); // выход нужен для того, чтобы в ответе не было ничего лишнего, только то что возвращает функция
 }
@@ -432,14 +432,71 @@ add_action( 'user_register', 'auto_login_new_user' );
 
 
 add_action( 'wp_login', function( $user_email){
-    if(isset($_POST['amount-new-order'])) {
-	    $user  = get_user_by( 'email', $user_email );
-	    if(empty($user)) {
-	        $user = get_user_by('login', $user_email);
-        }
-	    $order = new Orders();
-	    $order->NewOrder( $user->ID );
-	    wp_redirect( get_permalink( 85 ) );
-	    exit;
-    }
+	if(isset($_POST['amount-new-order'])) {
+		$user  = get_user_by( 'email', $user_email );
+		if(empty($user)) {
+			$user = get_user_by('login', $user_email);
+		}
+		$order = new Orders();
+		$order->NewOrder( $user->ID );
+		wp_redirect( get_permalink( 85 ) );
+		exit;
+	}
 } );
+
+function varDumpToString($var) {
+	ob_start();
+	print_r($var);
+	$result = ob_get_clean();
+	return $result;
+}
+
+
+if(isset($_GET['notify'])) {;
+
+	$file = '/var/www/wmetier.xpage.com.ua/www/people.txt';
+	if(!empty($_POST)) {
+		$current        = $_POST;
+		$current['cmd'] = '_notify-validate';
+		$current        = http_build_query( $current );
+		file_put_contents( $file, $current );
+	}
+
+	echo "<style type='text/css'>header { display:none!important; } </style>";
+    var_dump(file_get_contents($file));
+    $req = file_get_contents($file);
+
+//	$ch = curl_init('https://sandbox.paypal.com/cgi-bin/webscr');
+//	if ($ch == FALSE) {
+//		return FALSE;
+//	}
+//	curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+//	curl_setopt($ch, CURLOPT_POST, 1);
+//	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//	curl_setopt($ch, CURLOPT_POSTFIELDS, $req);
+//	curl_setopt($ch, CURLOPT_SSLVERSION, 6);
+//	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+//	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+//	curl_setopt($ch, CURLOPT_FORBID_REUSE, 1);
+//
+//	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+//	curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+//		'Connection: Close',
+//		'User-Agent:Your company name'
+//));
+//$result = curl_exec($ch);
+//var_dump('-----------------',$result,'-----',curl_error($ch), '----', curl_errno($ch));
+
+    phpinfo();
+	$result = file_get_contents('https://sandbox.paypal.com/cgi-bin/webscr', false, stream_context_create(array(
+		'http' => array(
+			'method'  => 'POST',
+			'header'  => 'Content-type: application/x-www-form-urlencoded',
+			'content' => $req
+		),
+
+	)));
+	$file = '/var/www/wmetier.xpage.com.ua/www/validate.txt';
+	$current = varDumpToString($result);
+	file_put_contents($file, $current);
+}

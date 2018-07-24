@@ -118,7 +118,7 @@ foreach($days as $day) {
                     <?php if(is_user_logged_in()){ ?>
                     <div class="bottom_reg_buttons">
                         <a href="<?php the_permalink(23); ?>" class="btn-transp-withoutBorder">Back to step one</a>
-                        <form class="paypal" action="<?php echo the_permalink(236); ?>" method="post" id="paypal_form" target="_blank">
+                        <form class="paypal" action="<?php echo the_permalink(235); ?>" method="post" id="paypal_form" target="_blank">
                             <input type="submit" name="submit" value="Submit Payment" />
                         </form>
                         <a href="#" class="safe_pay_btn">proceed to safe payment</a>

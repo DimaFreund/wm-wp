@@ -23,10 +23,10 @@
 define('DB_NAME', 'wmetier');
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', 'wmetier');
 
 /** MySQL database password */
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'fJ2GbcFt2yYXEru4');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
@@ -55,8 +55,6 @@ define('SECURE_AUTH_SALT', '8QP8{YY`fea(*sI49Ok5| =g4NcW{ tV?DN^gO?eJ(9=-xyua&{L
 define('LOGGED_IN_SALT',   'F(BJ$ AXj]xCY[LR`e!BZ}8w@u5?&u,QejcDW,<e]?*,%UtCNipQlJYAXptg4^YB');
 define('NONCE_SALT',       'hiMs+m ~z,~5/YiZgo=V#baI+L(=C0!p0xt.Zw7O|BC`C-[JQk#E7N-Yc;D8PK<T');
 
-define('WP_HOME','http://localhost');
-define('WP_SITEURL','http://localhost');
 
 /**#@-*/
 

@@ -8,9 +8,9 @@ $paypalEmail = get_field('paypalemail');
 $paypalURL = "https://sandbox.paypal.com/cgi-bin/webscr";
 $price = "20.20";
 $itemName = "Upgrade account";
-$returnUrl = "localhost";
-$cancelUrl = "localhost";
-$notifyUrl = "wmetier.xpage.com.ua";
+$returnUrl = "http://wmetier.xpage.com.ua/return";
+$cancelUrl = "http://wmetier.xpage.com.ua/cancel";
+$notifyUrl = "http://wmetier.xpage.com.ua/notify?notify";
 
 
 
@@ -29,6 +29,7 @@ $querystring .= "cmd=" . urlencode('_xclick') . "&";
 
 //ид пользователя – чтоб знати при ответе Paypal кто заплатил
 $querystring .= "custom=" . urlencode(6) . "&";
+$querystring .= "testf=" . urlencode(6) . "&";
 
 $querystring .= "item_name=" . urlencode($itemName) . "&";
 $querystring .= "amount=" . urlencode($price) . "&";
