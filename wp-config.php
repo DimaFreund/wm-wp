@@ -23,10 +23,17 @@
 define('DB_NAME', 'wmetier');
 
 /** MySQL database username */
-define('DB_USER', 'wmetier');
+define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'fJ2GbcFt2yYXEru4');
+define('DB_PASSWORD', '');
+define('WP_HOME','http://localhost');
+define('WP_SITEURL','http://localhost');
+
+
+//define('DB_PASSWORD', '2j3jkghskd2jhgk');
+//define('WP_HOME','http://wmetier.page.ua/');
+//define('WP_SITEURL','http://wmetier.page.ua/');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');

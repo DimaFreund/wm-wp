@@ -271,6 +271,7 @@ require_once locate_template( '/func/enqueues.php' );
 require_once locate_template( '/func/options-theme.php' );
 require_once locate_template( '/func/newOrders.php' );
 require_once locate_template( '/func/ListTableShow.php' );
+require_once locate_template( '/func/ajaxFunction.php' );
 
 
 
@@ -301,7 +302,7 @@ if(!current_user_can( 'manage_options' )){
 
 
 
-function true_image_uploader_field( $name, $value = '', $w = 115, $h = 90) {
+function true_image_uploader_field( $name, $value = '', $w = 115, $h = 90, $user = '') {
 	$default = get_stylesheet_directory_uri() . '/img/no-image.png';
 	$title = "";
 	if($value != 0) {
@@ -315,16 +316,8 @@ function true_image_uploader_field( $name, $value = '', $w = 115, $h = 90) {
 	} else {
 		$src = $default;
 	}
-	echo '
-	<div>
-		<div>
-		    <label id="for-title-name" for="title">'.$title.'</label>
-			<input type="hidden" name="' . $name . '" id="' . $name . '" value="' . $value . '" />
-			<button type="submit" class="upload_image_button button">Загрузить</button>
-			<button type="submit" class="remove_image_button button">&times;</button>
-		</div>
-	</div>
-	';
+
+	echo '<div class="wraper-item-upload"><span class="name-file">' .$title . '</span><button type="submit" class="remove_image_button button">&times;</button><input type="hidden" name="upload_file'.$user.'[]" value="'.$value.'"></div>';
 }
 
 function true_include_myuploadscript() {
@@ -407,25 +400,15 @@ function register_post_types_promo_cod(){
 	) );
 }
 
-add_action( 'wp_ajax_my_action', 'my_action_callback' );
-function my_action_callback() {
-	$whatever =  $_POST['promo'] ;
-
-	$promoObject = get_page_by_title($whatever, OBJECT, 'promo_cod');
-	$promoCod = get_field('procent', $promoObject->ID);
-	echo $promoCod;
-
-	wp_die(); // выход нужен для того, чтобы в ответе не было ничего лишнего, только то что возвращает функция
-}
 
 function auto_login_new_user( $user_id ) {
 	wp_set_current_user($user_id);
 	wp_set_auth_cookie($user_id);
 	$order = new Orders();
-	$order->NewOrder();
+	$orderId = $order->NewOrder();
 	// You can change home_url() to the specific URL,such as
 	//wp_redirect( 'http://www.wpcoke.com' );
-	wp_redirect( get_permalink(85) );
+	wp_redirect( get_permalink( 85 ) .'?order='. $orderId );
 	exit;
 }
 add_action( 'user_register', 'auto_login_new_user' );
@@ -438,8 +421,8 @@ add_action( 'wp_login', function( $user_email){
 			$user = get_user_by('login', $user_email);
 		}
 		$order = new Orders();
-		$order->NewOrder( $user->ID );
-		wp_redirect( get_permalink( 85 ) );
+		$orderId = $order->NewOrder( $user->ID );
+		wp_redirect( get_permalink( 85 ) .'?order='. $orderId );
 		exit;
 	}
 } );
@@ -453,50 +436,57 @@ function varDumpToString($var) {
 
 
 if(isset($_GET['notify'])) {;
+	$file           = '/var/www/wmetier/people.txt';
+if(!empty($_POST)) {
 
-	$file = '/var/www/wmetier.xpage.com.ua/www/people.txt';
-	if(!empty($_POST)) {
-		$current        = $_POST;
-		$current['cmd'] = '_notify-validate';
-		$current        = http_build_query( $current );
-		file_put_contents( $file, $current );
-	}
+	$current        = $_POST;
+	$current['cmd'] = '_notify-validate';
+	$current        = http_build_query( $current );
+	file_put_contents( $file, $current );
+}
 
 	echo "<style type='text/css'>header { display:none!important; } </style>";
     var_dump(file_get_contents($file));
-    $req = file_get_contents($file);
+    $req = $current;
 
-//	$ch = curl_init('https://sandbox.paypal.com/cgi-bin/webscr');
-//	if ($ch == FALSE) {
-//		return FALSE;
-//	}
-//	curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-//	curl_setopt($ch, CURLOPT_POST, 1);
-//	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-//	curl_setopt($ch, CURLOPT_POSTFIELDS, $req);
-//	curl_setopt($ch, CURLOPT_SSLVERSION, 6);
-//	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
-//	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-//	curl_setopt($ch, CURLOPT_FORBID_REUSE, 1);
-//
-//	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
-//	curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-//		'Connection: Close',
-//		'User-Agent:Your company name'
-//));
-//$result = curl_exec($ch);
-//var_dump('-----------------',$result,'-----',curl_error($ch), '----', curl_errno($ch));
+	$ch = curl_init('https://sandbox.paypal.com/cgi-bin/webscr');
+	if ($ch == FALSE) {
+		return FALSE;
+	}
+	curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $req);
+	curl_setopt($ch, CURLOPT_SSLVERSION, 6);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+	curl_setopt($ch, CURLOPT_FORBID_REUSE, 1);
 
-    phpinfo();
-	$result = file_get_contents('https://sandbox.paypal.com/cgi-bin/webscr', false, stream_context_create(array(
-		'http' => array(
-			'method'  => 'POST',
-			'header'  => 'Content-type: application/x-www-form-urlencoded',
-			'content' => $req
-		),
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+		'Connection: Close',
+		'User-Agent:Your company name'
+));
+$res = curl_exec($ch);
+var_dump('-----------------',$res,'-----',curl_error($ch), '----', curl_errno($ch));
 
-	)));
-	$file = '/var/www/wmetier.xpage.com.ua/www/validate.txt';
-	$current = varDumpToString($result);
-	file_put_contents($file, $current);
+	$tokens = explode("\r\n\r\n", trim($res));
+	$res = trim(end($tokens));
+	if ($res == "VERIFIED"){
+
+        global $wpdb;
+
+        $wpdb->update('wp_orders', ['status' => $_POST['payment_status'], 'paypal_info' => $current], ['id' => $_POST['custom']]);
+
+
+	}
+
+
+}
+
+
+if(isset($_POST['wp_multi_file_uploader']) && isset($_GET['id'])) {
+    global $wpdb;
+
+    $wpdb->update('wp_orders', ['upload_file_front' => serialize($_POST['wp_multi_file_uploader'])], ['id' => $_GET['id']]);
 }

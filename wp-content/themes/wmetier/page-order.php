@@ -28,9 +28,6 @@ foreach($days as $day) {
 
 <?php } ?>
 <?php $columnJson = json_encode($column); ?>
-<!--    <pre>-->
-<!--        --><?php //var_dump($column); ?>
-<!--    </pre>-->
 
     <input type="hidden" id="table-auto-price" value="<?php echo esc_attr($columnJson); ?>">
     <main class="order-page-content single-article registration-styles" id="page-order-options">
@@ -49,7 +46,7 @@ foreach($days as $day) {
                                 </div>
                             </li>
                             <li>
-                                <a href="<?php echo get_permalink(85); ?>" class="name-step">Preview & Personal</a>
+                                <a onclick="document.getElementById('order-blank').submit();" href="<?php echo get_permalink(85); ?>" class="name-step">Preview & Personal</a>
                                 <div class="bg-counter-steps">
                                     <div class="num">2</div>
                                     <div class="text">Step</div>
@@ -59,20 +56,20 @@ foreach($days as $day) {
                         </ul>
                     </div>
 
-                    <form method="POST" action="<?php  echo get_permalink(85); ?>" class="calculator-section">
-                        <div class="col radioBtn-group category-type">
+                    <form onsubmit="return submitOrderForm()" id="order-blank" method="POST" action="<?php  echo get_permalink(85); ?>" class="calculator-section">
+                        <div class="col radioBtn-group category-type" id="typePaper">
                             <div class="title-row-form">Type of paper needed</div>
                             <ul>
                                 <li>
-                                    <input type="radio" id="paper_academic" name="type-paper">
+                                    <input type="radio" id="paper_academic" name="type_paper">
                                     <label for="paper_academic">Academic</label>
                                 </li>
                                 <li>
-                                    <input type="radio" id="paper_business" name="type-paper">
+                                    <input type="radio" id="paper_business" name="type_paper">
                                     <label for="paper_business">Business</label>
                                 </li>
                                 <li>
-                                    <input type="radio" id="paper_content" name="type-paper" class="inactive-item">
+                                    <input type="radio" id="paper_content" name="type_paper" class="inactive-item">
                                     <label for="paper_content">Content</label>
                                 </li>
                             </ul>
@@ -84,7 +81,7 @@ foreach($days as $day) {
                                 <?php foreach($categoryId as $item) { ?>
                                     <?php $category = get_category($item); ?>
                                 <div class="select-section little_select">
-                                    <select name="discipline-task" id="type-task-variants-<?= $category->slug; ?>">
+                                    <select name="typy_work" id="type-task-variants-<?= $category->slug; ?>">
 	                                    <?php $args  = array(
 		                                    'posts_per_page'   => -1,
 		                                    'offset'           => 0,
@@ -106,7 +103,6 @@ foreach($days as $day) {
 		                                    'fields'           => '',
 	                                    );
 	                                    $posts_array = get_posts( $args ); ?>
-                                        <pre><?php var_dump($posts_array); ?></pre>
                                         <?php foreach($posts_array as $post) { ?>
                                             <option value="<?= $post->post_title; ?>"><?= $post->post_title; ?></option>
                                         <?php } ?>
@@ -134,7 +130,7 @@ foreach($days as $day) {
                         <div class="title-row-form">Subject</div>
                         <div class="type-task">
                             <div class="select-section large_select">
-                                <select name="type-task-academic" id="type-task-subject">
+                                <select name="disciplin" id="type-task-subject">
                                     <?php foreach(get_field('discipline:', 23) as $item) { ?>}
                                         <option value="<?= $item['text']; ?>"><?= $item['text']; ?></option>
                                     <?php } ?>
@@ -146,22 +142,22 @@ foreach($days as $day) {
                             <div class="counter-box">
                                 <div class="counter_box_left">
                                     <label for="fieldCount" class="title-row-form">Number of pages</label>
-                                    <div class="counter">
+                                    <div class="counter counter-pages">
                                         <button type="button" class="counterBtn dec down-btn"></button>
-                                        <input name="countPage" type="text" id="fieldCount" class="field fieldCount" value="1" data-min="1" data-max="9999">
+                                        <input name="pages" type="text" id="fieldCount" class="field fieldCount" value="1" data-min="1" data-max="9999">
                                         <button type="button" class="counterBtn inc up-btn"></button>
                                     </div>
                                 </div>
                                 <div class="sub-desc">
                                     <span class="numberWordsCounter">275</span>
-                                    <span> pages</span>
+                                    <span> words</span>
                                 </div>
                             </div>
                             <div class="pages_spacing">
                                 <div>
                                     <label for="">Spacing</label>
                                     <div class="select-section pages_settings_select">
-                                        <select name="type-task-content" id="select_spacing">
+                                        <select name="spacing" id="select_spacing">
                                             <option value="550">Double Spaced</option>
                                             <option value="275">One Space</option>
                                         </select>
@@ -179,7 +175,7 @@ foreach($days as $day) {
                             <ul>
 		                        <?php foreach($academic_level as $item) { ?>
                                     <li>
-                                        <input <?php if($item == $academic_level[0]) echo 'checked'; ?> type="radio" id="<?php echo $item; ?>" name="academic-level">
+                                        <input <?php if($item == $academic_level[0]) echo 'checked'; ?> type="radio" id="<?php echo $item; ?>" name="academic_level">
                                         <label for="<?php echo $item; ?>"><?php echo $item; ?></label>
                                     </li>
 		                        <?php } ?>
@@ -204,13 +200,13 @@ foreach($days as $day) {
                                 <label for="fieldCountSources" class="title-row-form">Number of sources</label>
                                 <div class="counter counter_sources">
                                     <button type="button" class="counterBtn dec down-btn"></button>
-                                    <input name="count-sources" type="text" id="fieldCountSources" class="field fieldCountSources" value="1" data-min="1" data-max="999">
+                                    <input name="sources" type="text" id="fieldCountSources" class="field fieldCountSources" value="1" data-min="1" data-max="999">
                                     <button type="button" class="counterBtn inc up-btn"></button>
                                 </div>
                             </div>
                             <div class="sources_checkbox">
                                 <label for="sourseNeed">
-                                    <input type="checkbox" name="source_no_need" id="sourseNeed">
+                                    <input type="checkbox" name="sources_need" id="sourseNeed">
                                     <i></i>
                                 </label>
                                 <span>Not needed</span>
@@ -278,11 +274,11 @@ foreach($days as $day) {
 						  -->
                         <div class="col">
                             <div class="title-row-form">Topic</div>
-                            <input type="text" name="writer-choice">
+                            <input type="text" name="writers">
                         </div>
                         <div class="col">
                             <div class="title-row-form">Instructions</div>
-                            <textarea name="instructions" id="instructions" cols="30" rows="10"></textarea>
+                            <textarea name="description" id="instructions" cols="30" rows="10"></textarea>
                         </div>
                         <!--<div class="row-btns">-->
                         <!--<a href="" class="btn-transp-withoutBorder">Back to step one</a>-->
@@ -304,29 +300,29 @@ foreach($days as $day) {
                             </div>
                         </div>
                         <div class="input_customized">
-                            <label for="bonus-page">
-                                <input type="checkbox" id="bonus-page" name="bonus-page">
+                            <label for="bonus_page">
+                                <input type="checkbox" id="bonus-page" name="bonus_page">
                                 <i></i>
                             </label>
                             <span>Add 1-page summary to my paper</span>
                         </div>
                         <div class="input_customized">
-                            <label for="check-professional">
-                                <input type="checkbox" id="check-professional" name="check-professional">
+                            <label for="check_professional">
+                                <input type="checkbox" id="check-professional" name="check_professional">
                                 <i></i>
                             </label>
                             <span>I want professional quality check for my order</span>
                         </div>
                         <div class="input_customized">
-                            <label for="plagiat-report">
-                                <input type="checkbox" id="plagiat-report" name="plagiat-report">
+                            <label for="plagiat_report">
+                                <input type="checkbox" id="plagiat-report" name="plagiat_report">
                                 <i></i>
                             </label>
                             <span>Plagiarism report</span>
                         </div>
                         <div class="input_customized">
-                            <label for="special-writer">
-                                <input type="checkbox" id="special-writer" name="special-writer">
+                            <label for="special_writer">
+                                <input type="checkbox" id="special-writer" name="special_writer">
                                 <i></i>
                             </label>
                             <span>I want UK/US writer</span>
@@ -345,9 +341,8 @@ foreach($days as $day) {
                         <input type="submit" class="pink-btn" value="Go to step two">
 
                         <input type="hidden" name="finally-price" id="hidden-finally-price">
-                        <input type="hidden" name="level-dificult" id="hidden-for-dificult">
-                        <input type="hidden" name="deadline-time" id="hidden-for-time">
-                        <input type="hidden" name="style-writing" id="hidden-for-style">
+                        <input type="hidden" name="deadline" id="hidden-for-time">
+                        <input type="hidden" name="citation_style" id="hidden-for-style">
                         <input type="hidden" name="discount-promo" id="hidden-for-discount">
                     </form>
 

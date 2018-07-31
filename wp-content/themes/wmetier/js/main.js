@@ -693,25 +693,37 @@ if ($('#page-order-options').length) {
 
     });
 
-    $('.category-type ul li label').on('click', function() {
+    function frozenTypePaper() {
         var number, counter = 0;
-        setTimeout(function () {
-            number = $('.category-type ul li').index($('.category-type input[type="radio"]:checked').parent());
-            $('.can-disables .select-section').each(function () {
-                if(counter != number) {
-                    $(this).children().prop('disabled', true);
-                } else {
-                    $(this).children().prop('disabled', false);
-                }
+        number = $('.category-type ul li').index($('.category-type input[type="radio"]:checked').parent());
+        $('.can-disables .select-section').each(function () {
+            if(counter != number) {
+                $(this).children().prop('disabled', true);
+            } else {
+                $(this).children().prop('disabled', false);
+            }
 
-                counter++;
-            })
+            counter++;
+        });
+    }
+
+    $('.category-type ul li label').on('click', function() {
+
+        setTimeout(function () {
+
+            frozenTypePaper();
+
+            changeFields('type_paper');
         }, 1);
     });
 
-    $('.counter').on('click', function () {
+    $('.counter-pages').on('click', function () {
         multiplexPage($(this).children('input').val());
-        document.cookie = 'countPage=' + $(this).children('input').val() + ';path=/;';
+        document.cookie = 'pages=' + $(this).children('input').val() + ';path=/;';
+    });
+
+    $('.counter_sources').on('click', function () {
+        document.cookie = 'sources=' + $(this).children('input').val() + ';path=/;';
     });
 
     $('#fieldCount').on('change', function () {
@@ -727,13 +739,14 @@ if ($('#page-order-options').length) {
         var mod = $('.spacingWordsCounter').html();
         var wordfield = $('.numberWordsCounter');
         wordfield.html(mod * value);
-        changeFields("level-dificult");
+        changeFields("academic_level");
     }
 
     function changeFields(changeElement) {
         // $('.time-line ul li').each(function(e){
         //    console.log($(this).children('input').attr('checked', 'checked'));
         // })
+        var type_paper = $('#typePaper ul li').index($('#typePaper input[type="radio"]:checked').parent());
         var level = $('#level-dificult ul li').index($('#level-dificult input[type="radio"]:checked').parent());
         var deadline = $('#deadline ul li').index($('#deadline input[type="radio"]:checked').parent());
         var price = $('#price-work ul li').index($('#price-work input[type="radio"]:checked').parent());
@@ -741,28 +754,29 @@ if ($('#page-order-options').length) {
         var table = JSON.parse($('#table-auto-price').val());
         var page = $('#fieldCount').val();
         var spacing = $('.spacingWordsCounter').html()/275;
-        if (changeElement == 'level-dificult') {
+        if (changeElement == 'academic_level') {
             for (var i = 0; i < table.length; i++) {
                 $('#price-work ul li').eq(table.length - i - 1).children().children('.title').html(table[i][level] * page * spacing);
             }
         }
-        if (changeElement == 'deadline' || changeElement == 'level-dificult') {
+        if (changeElement == 'deadline' || changeElement == 'academic_level') {
             $('#price-work input[type="radio"]').eq(table.length - 1 - deadline).prop('checked', true);
         }
-        if (changeElement == 'price-work') {
+        if (changeElement == 'price_work') {
             $('#deadline input[type="radio"]').eq(table.length - 1 - price).prop('checked', true);
         }
         $('#hidden-for-dificult').val(level);
         $('#hidden-for-time').val(deadline);
         $('#hidden-for-style').val(style);
-        document.cookie = 'level-dificult=' + level + ';path=/;';
-        document.cookie = 'deadline-time=' + deadline + ';path=/;';
-        document.cookie = 'style-writing=' + style + ';path=/;';
+        document.cookie = 'academic_level=' + level + ';path=/;';
+        document.cookie = 'deadline=' + deadline + ';path=/;';
+        document.cookie = 'citation_style=' + style + ';path=/;';
+        document.cookie = 'type_paper=' + type_paper + ';path=/;';
 
-        document.cookie = 'level-dificult-value=' + $('#level-dificult input[type="radio"]').eq($('#level-dificult ul li').index($('#level-dificult input[type="radio"]:checked').parent())).attr('id') + ';path=/;';
-        document.cookie = 'deadline-time-value=' + $('#deadline input[type="radio"]').eq($('#deadline ul li').index($('#deadline input[type="radio"]:checked').parent())).attr('id') + ';path=/;';
-        document.cookie = 'style-writing-value=' + $('#style-work input[type="radio"]').eq($('#style-work ul li').index($('#style-work input[type="radio"]:checked').parent())).attr('id') + ';path=/;';
-        document.cookie = 'price-value=' + $('#price-work ul li').eq($('#price-work ul li').index($('#price-work input[type="radio"]:checked').parent())).children().children('.title').html() + ';path=/;';
+        document.cookie = 'academic_level-value=' + $('#level-dificult input[type="radio"]').eq($('#level-dificult ul li').index($('#level-dificult input[type="radio"]:checked').parent())).attr('id') + ';path=/;';
+        document.cookie = 'deadline_value=' + $('#deadline input[type="radio"]').eq($('#deadline ul li').index($('#deadline input[type="radio"]:checked').parent())).attr('id') + ';path=/;';
+        document.cookie = 'citation_style_value=' + $('#style-work input[type="radio"]').eq($('#style-work ul li').index($('#style-work input[type="radio"]:checked').parent())).attr('id') + ';path=/;';
+        document.cookie = 'price_value=' + $('#price-work ul li').eq($('#price-work ul li').index($('#price-work input[type="radio"]:checked').parent())).children().children('.title').html() + ';path=/;';
         deadline = $('#deadline ul li').index($('#deadline input[type="radio"]:checked').parent());
         if (deadline && page) {
             $('#start_price').html(table[deadline][level] * page *spacing);
@@ -829,14 +843,18 @@ if ($('#page-order-options').length) {
             console.log(name + '---' + getCookie(name));
             var cook = getCookie(name);
             if (cook) {
-                if (name == "level-dificult") {
+                if (name == "academic_level") {
                     $('#level-dificult input[type="radio"]').eq(cook).prop('checked', true);
                 }
-                else if (name == "deadline-time") {
+                else if (name == "deadline") {
                     $('#deadline input[type="radio"]').eq(cook).prop('checked', true);
                 }
-                else if (name == "style-writing") {
+                else if (name == "citation_style") {
                     $('#style-work input[type="radio"]').eq(cook).prop('checked', true);
+                }
+                else if (name == "type_paper") {
+                    $('#typePaper input[type="radio"]').eq(cook).prop('checked', true);
+                    frozenTypePaper();
                 }
                 else if (cook == "on") {
                     $(this).prop( "checked", true );
@@ -845,15 +863,18 @@ if ($('#page-order-options').length) {
 
                     $(this).val(getCookie(name));
                 }
-                if( name == 'type-task-content') {
+                if( name == 'spacing') {
                     $('.spacingWordsCounter').html(cook);
-                    $('.numberWordsCounter').html(cook);
+                }
+                if( name == 'pages') {
+
+                    $('.numberWordsCounter').html(getCookie('spacing')*cook);
                 }
             }
         }
     });
 
-    changeFields('level-dificult');
+    changeFields('academic_level');
 
 
 }
@@ -897,21 +918,37 @@ if ($('.custom-paper-details-section').length) {
         }
 
     })
-    if ($('input[name="instructions"]').val().length == 0) {
-        $('input[name="instructions"]').val(getCookie('instructions'));
+    if ($('input[name="description"]').val().length == 0) {
+        $('input[name="description"]').val(getCookie('description'));
     }
     if ($('.total-price .res').html().length == 0) {
-        $('.total-price .res').html(getCookie('price-value'));
+        $('.total-price .res').html(getCookie('price_value'));
     }
 }
+getAllCoockie();
+function getAllCoockie() {
+    document.cookie.split(/; */).forEach(function (cookieraw) {
+        var cookie = cookieraw.split('=');
+        var name = cookie[0];//print it
+        var value = cookie[1]; //print it
+        $('form').append('<input name=' + name + ' value="' + value + '" type="hidden">');
+    });
+}
 
-document.cookie.split(/; */).forEach(function (cookieraw) {
-    var cookie = cookieraw.split('=');
-    var name = cookie[0];//print it
-    var value = cookie[1]; //print it
-    $('form').append('<input name=' + name + ' value="' + value + '" type="hidden">');
-});
 
+function submitOrderForm() {
+
+    var agree = $('#term-conditions');
+
+    if (agree.prop('checked')) {
+        getAllCoockie();
+        document.getElementById('order-blank').submit();
+    } else {
+        agree.next('i').css('border', '3px solid red').css('border-radius', '5px');
+        agree.parent().next('span').css('color', 'red');
+        return false;
+    }
+}
 
 // Magnific-popup
 $(document).ready(function () {

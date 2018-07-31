@@ -11,6 +11,11 @@
  *
  * @package wmetier
  */
+$order = null;
+
+if(isset($_GET['order'])) {
+	$order = Orders::getOneOrder( $_GET['order'] );
+}
 
 get_header(); ?>
 
@@ -71,57 +76,102 @@ foreach($days as $day) {
 
                             <p>Hello, <b class="form_name_output"><?= wp_get_current_user()->user_login; ?>!</b></p>
                             <p>We are glad to see you again</p>
-                            <a href="#">proceed to safe payment</a>
+                            <a onclick="document.getElementById('paypal_form').submit(); return false;" href="#">proceed to safe payment</a>
                         </div>
 					<?php } ?>
+                    <?php if(isset($order) && !empty($order)) { ?>
                     <div class="paper-details-section">
                         <div class="paper-details-content">
                             <div class="details-desc">
                                 <h3>Your order Summary</h3>
+
                                 <div class="row">
                                     <div class="name-details">Type of paper:</div>
-                                    <div class="desc-details"><?php if(isset($_POST['discipline-task'])) echo $_POST['discipline-task']; ?></div>
+                                    <div class="desc-details"><?= $order->typy_work; ?></div>
                                 </div>
                                 <div class="row">
                                     <div class="name-details">Pages:</div>
-                                    <div class="desc-details"><?php if(isset($_POST['countPage'])) echo $_POST['countPage']; ?></div>
+                                    <div class="desc-details"><?= $order->pages; ?></div>
                                 </div>
                                 <div class="row">
                                     <div class="name-details">Academic Level:</div>
-                                    <div class="desc-details"><?php if(isset($_POST['level-dificult'])) echo $academic_level[$_POST['level-dificult']]; ?>  </div>
+                                    <div class="desc-details"><?= $order->academic_level; ?>  </div>
                                 </div>
                                 <div class="row">
                                     <div class="name-details">Discipline:</div>
-                                    <div class="desc-details"><?php if(isset($_POST['discipline-task'])) echo $_POST['discipline-task']; ?></div>
+                                    <div class="desc-details"><?= $order->disciplin; ?></div>
                                 </div>
                                 <div class="row">
-	                                <?php $all_style = get_field('citation_style', 23); ?>
                                     <div class="name-details">Citation style:</div>
-                                    <div class="desc-details"><?php if(isset($_POST['style-writing']) && $_POST['style-writing'] != -1) echo $all_style[$_POST['style-writing']]['text']; ?></div>
+                                    <div class="desc-details"><?= $order->citation_style; ?></div>
                                 </div>
                                 <div class="row">
                                     <div class="name-details">Topic:</div>
-                                    <div class="desc-details"><?php if(isset($_POST['writer-choice'])) echo $_POST['writer-choice']; ?></div>
+                                    <div class="desc-details"><?= $order->writers; ?></div>
                                 </div>
                                 <div class="row">
                                     <div class="name-details">Deadline:</div>
-                                    <div class="desc-details"><?php if(isset($_POST['deadline-time']) && $_POST['deadline-time'] != -1) echo $title[$_POST['deadline-time']]; ?></div>
+                                    <div class="desc-details"><?= $order->deadline; ?></div>
                                 </div>
                             </div>
                         </div>
                         <div class="total-price">
                             <div class="title">Total price: </div>
                             <div class="znak">$</div>
-                            <div class="res"><?php if(isset($_POST['finally-price'])) echo $_POST['finally-price']; ?></div>
+                            <div class="res"><?= $order->price; ?></div>
                         </div>
                     </div>
+                    <?php } else { ?>
+                        <div class="paper-details-section">
+                            <div class="paper-details-content">
+                                <div class="details-desc">
+                                    <h3>Your order Summary</h3>
+                                    <div class="row">
+                                        <div class="name-details">Type of paper:</div>
+                                        <div class="desc-details"><?php if(isset($_POST['typy_work'])) echo $_POST['typy_work']; ?></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="name-details">Pages:</div>
+                                        <div class="desc-details"><?php if(isset($_POST['pages'])) echo $_POST['pages']; ?></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="name-details">Academic Level:</div>
+                                        <div class="desc-details"><?php if(isset($_POST['academic_level'])) echo $academic_level[$_POST['academic_level']]; ?>  </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="name-details">Discipline:</div>
+                                        <div class="desc-details"><?php if(isset($_POST['disciplin'])) echo $_POST['disciplin']; ?></div>
+                                    </div>
+                                    <div class="row">
+					                    <?php $all_style = get_field('citation_style', 23); ?>
+                                        <div class="name-details">Citation style:</div>
+                                        <div class="desc-details"><?php if(isset($_POST['citation_style']) && $_POST['citation_style'] != -1) echo $all_style[$_POST['citation_style']]['text']; ?></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="name-details">Topic:</div>
+                                        <div class="desc-details"><?php if(isset($_POST['writers'])) echo $_POST['writers']; ?></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="name-details">Deadline:</div>
+                                        <div class="desc-details"><?php if(isset($_POST['deadline']) && $_POST['deadline'] != -1) echo $title[$_POST['deadline']]; ?></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="total-price">
+                                <div class="title">Total price: </div>
+                                <div class="znak">$</div>
+                                <div class="res"><?php if(isset($_POST['finally-price'])) echo $_POST['finally-price']; ?></div>
+                            </div>
+                        </div>
+                    <?php } ?>
                     <?php if(is_user_logged_in()){ ?>
                     <div class="bottom_reg_buttons">
                         <a href="<?php the_permalink(23); ?>" class="btn-transp-withoutBorder">Back to step one</a>
                         <form class="paypal" action="<?php echo the_permalink(235); ?>" method="post" id="paypal_form" target="_blank">
-                            <input type="submit" name="submit" value="Submit Payment" />
+                            <input type="hidden" name="orderID" value="<?php if(isset($_GET['order'])) echo $_GET['order']; ?>">
+                            <a onclick="document.getElementById('paypal_form').submit(); return false;" href="#" class="safe_pay_btn">proceed to safe payment</a>
                         </form>
-                        <a href="#" class="safe_pay_btn">proceed to safe payment</a>
+
                     </div>
                     <?php } ?>
                 </div>
@@ -164,7 +214,6 @@ foreach($days as $day) {
         </div>
         <button class="btn-to-top"></button>
     </main>
-
 
 
 

@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="WrM" createEmptyFolders="true" autoUploadExternalChanges="true">
+  <component name="PublishConfigData" autoUpload="Always" serverName="VPS_WM" createEmptyFolders="true" autoUploadExternalChanges="true">
     <serverData>
       <paths name="DO">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="VPS_WM">
         <serverdata>
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
