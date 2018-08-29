@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="b31edeeb-3005-40ed-9b86-a64e5a9d3c39" name="WritingMetierProduction" url="http://writingm.ftp.tools">
+        <fileTransfer host="writingm.ftp.tools" port="21" rootFolder="/writingmetier.com/www">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

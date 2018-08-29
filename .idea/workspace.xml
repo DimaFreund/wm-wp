@@ -92,33 +92,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="page-order-cabinet.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/page-order-cabinet.php">
+      <file leaf-file-name="front-page.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/front-page.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="685">
-              <caret line="159" column="95" lean-forward="false" selection-start-line="159" selection-start-column="95" selection-end-line="159" selection-end-column="95" />
-              <folding>
-                <marker date="1533033065983" expanded="true" signature="6745:6922" ph="..." />
-                <marker date="1533033065983" expanded="true" signature="6772:6922" ph="..." />
-                <marker date="1533033065983" expanded="true" signature="6801:6846" ph="..." />
-                <marker date="1533033065983" expanded="true" signature="6877:6922" ph="..." />
-                <marker date="1533033065983" expanded="true" signature="7155:7490" ph="..." />
-                <marker date="1533033065983" expanded="true" signature="7624:8194" ph="..." />
-                <marker date="1533033065983" expanded="true" signature="7653:7697" ph="..." />
-                <marker date="1533033065983" expanded="true" signature="7727:8184" ph="..." />
-                <marker date="1533033065983" expanded="true" signature="7761:8173" ph="..." />
-                <marker date="1533033065983" expanded="true" signature="7975:8045" ph="..." />
-                <marker date="1533033065983" expanded="true" signature="7975:8144" ph="..." />
-              </folding>
+            <state relative-caret-position="165">
+              <caret line="32" column="28" lean-forward="false" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page-order-invoice.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/page-order-invoice.php">
+      <file leaf-file-name="front-page.php" pinned="true" current-in-tab="false">
+        <entry file="remoteDeploymentFS://&lt;b31edeeb-3005-40ed-9b86-a64e5a9d3c39&gt;/wp-content/themes/wmetier/front-page.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="13" column="5" lean-forward="false" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -135,14 +133,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>details-desc</find>
-      <find>status</find>
-      <find>uploader_custom</find>
-      <find>discipl</find>
-      <find>sources</find>
-      <find>fieldCountSources</find>
-      <find>numberWordsCounter</find>
-      <find>go to st</find>
       <find>form</find>
       <find>counter</find>
       <find>addition</find>
@@ -165,6 +155,14 @@
       <find>deadline</find>
       <find>getServicesCategoriesFields</find>
       <find>invoice</find>
+      <find>double</find>
+      <find>email</find>
+      <find>status</find>
+      <find>pay</find>
+      <find>pay now</find>
+      <find>orders_switch_btn orders_switch_btn_active</find>
+      <find>notify</find>
+      <find>order now</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -173,13 +171,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/css/style.css.old" />
-        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/header.php" />
-        <option value="$PROJECT_DIR$/writingMetierXpage/dist/js/main.js" />
-        <option value="$PROJECT_DIR$/writingMetierXpage/dist/order.html" />
         <option value="$PROJECT_DIR$/wp-content/themes/wmetier/page-login.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/wmetier/js/pdfobject.min.js" />
-        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/footer.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/wmetier/page-services.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/wmetier/single.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/wmetier/archive.php" />
@@ -190,15 +183,12 @@
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/000-default.conf" />
         <option value="$PROJECT_DIR$/init_db.sh" />
-        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/front-page.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/wmetier/page.php" />
         <option value="&lt;399abea0-4694-4784-921c-0fe1eaa4d549&gt;/wp-content/themes/wmetier/page-order-2-steps.php" />
         <option value="&lt;e1a20acf-d894-42dc-b4fc-10b8fecd4b84&gt;/validate.txt" />
         <option value="&lt;e1a20acf-d894-42dc-b4fc-10b8fecd4b84&gt;/people.txt" />
-        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/page-order-2-steps.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/wmetier/page-order.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/wmetier/js/main.js" />
-        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/page-payment-settings.php" />
         <option value="$PROJECT_DIR$/wp-config.php" />
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="&lt;e1a20acf-d894-42dc-b4fc-10b8fecd4b84&gt;/wp-config.php" />
@@ -213,14 +203,25 @@
         <option value="&lt;ad0b1cb8-e13e-467a-a357-685942fd1d76&gt;/bimboka.com/html/wp-content/themes/bimboka/woocommerce/taxonomy-product_cat.php" />
         <option value="&lt;ad0b1cb8-e13e-467a-a357-685942fd1d76&gt;/bimboka.com/html/wp-content/themes/bimboka/woocommerce/archive-product.php" />
         <option value="&lt;ad0b1cb8-e13e-467a-a357-685942fd1d76&gt;/bimboka.com/html/wp-content/themes/bimboka/woocommerce.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/functions.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/func/ListTableShow.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/wmetier/admin.js" />
-        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/page-account-customer.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/func/newOrders.php" />
         <option value="&lt;e3223fdc-1ccb-44df-99dd-2c2918f50e92&gt;/home/brian/web-data/www.dc.volia.com/common/config/main-local.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/README.md" />
+        <option value="&lt;e1a20acf-d894-42dc-b4fc-10b8fecd4b84&gt;/wp-content/themes/wmetier/README.md" />
+        <option value="&lt;e1a20acf-d894-42dc-b4fc-10b8fecd4b84&gt;/wp-content/themes/wmetier/page-order-2-steps.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/func/ListTableShow.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/wmetier/page-order-cabinet.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/page-order-2-steps.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/page-payment-settings.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/page-successful.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/func/newOrders.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/page-account-customer.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/wmetier/page-order-invoice.php" />
+        <option value="&lt;b31edeeb-3005-40ed-9b86-a64e5a9d3c39&gt;/writingmetier.com/www/wp-config.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/footer.php" />
+        <option value="$PROJECT_DIR$/robots.txt" />
+        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/functions.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/wmetier/front-page.php" />
       </list>
     </option>
   </component>
@@ -265,7 +266,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -282,12 +283,6 @@
               <item name="WM" type="b2602c69:ProjectViewProjectNode" />
               <item name="WM" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="WM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WM" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -303,13 +298,13 @@
               <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="wmetier" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="func" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -321,15 +316,15 @@
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
-    <property name="last_opened_file_path" value="$APPLICATION_CONFIG_DIR$/jdbc-drivers/MySQL Connector/J/5.1.46/mysql-connector-java-5.1.46.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/wp-content/themes/wmetier/css/style.css" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/wp-content/themes/wmetier/css" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/wp-content/themes/wmetier" />
       <recent name="$PROJECT_DIR$/wp-content/themes/wmetier/images" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/wp-content/themes/wmetier/css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -472,25 +467,35 @@
       <workItem from="1532942086967" duration="19811000" />
       <workItem from="1533020168511" duration="3245000" />
       <workItem from="1533025419547" duration="4623000" />
-      <workItem from="1533032877015" duration="563000" />
+      <workItem from="1533032877015" duration="7668000" />
+      <workItem from="1533045185313" duration="1580000" />
+      <workItem from="1533049535151" duration="1153000" />
+      <workItem from="1533109316877" duration="806000" />
+      <workItem from="1533116151601" duration="1342000" />
+      <workItem from="1533129278591" duration="9100000" />
+      <workItem from="1534318640437" duration="3034000" />
+      <workItem from="1534340328250" duration="1745000" />
+      <workItem from="1534342994608" duration="721000" />
+      <workItem from="1534343740086" duration="604000" />
+      <workItem from="1535546831803" duration="917000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="301429000" />
+    <option name="totallyTimeSpent" value="329536000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="575" y="217" width="1920" height="1050" extended-state="6" />
+    <frame x="0" y="30" width="1920" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42219803" sideWeight="0.50426894" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32861805" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42173913" sideWeight="0.49573106" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31963715" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2850925" sideWeight="0.49573106" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35805762" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.49573106" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -522,140 +527,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-includes/general-template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20220">
-          <caret line="1353" column="33" lean-forward="false" selection-start-line="1353" selection-start-column="4" selection-end-line="1353" selection-end-column="33" />
-          <folding>
-            <marker date="1517866693000" expanded="true" signature="28736:28749" ph="..." />
-            <marker date="1517866693000" expanded="true" signature="56350:56532" ph="SELECT YEAR(... " />
-            <marker date="1517866693000" expanded="true" signature="57424:57559" ph="SELECT YEAR(... " />
-            <marker date="1517866693000" expanded="true" signature="58324:58568" ph="SELECT YEAR(... " />
-            <marker date="1517866693000" expanded="true" signature="59539:59777" ph="SELECT DISTI... " />
-            <marker date="1517866693000" expanded="true" signature="61181:61239" ph="SELECT * FRO... ${$wpdb-&gt;posts}" />
-            <marker date="1517866693000" expanded="true" signature="63544:63639" ph="SELECT 1 as ${$wpdb-&gt;posts}" />
-            <marker date="1517866693000" expanded="true" signature="64877:65091" ph="SELECT MONTH... " />
-            <marker date="1517866693000" expanded="true" signature="65120:65351" ph="SELECT MONTH... " />
-            <marker date="1517866693000" expanded="true" signature="65527:65668" ph="..." />
-            <marker date="1517866693000" expanded="true" signature="65662:65668" ph="..." />
-            <marker date="1517866693000" expanded="true" signature="66113:66119" ph="..." />
-            <marker date="1517866693000" expanded="true" signature="66922:66928" ph="..." />
-            <marker date="1517866693000" expanded="true" signature="67021:67256" ph="SELECT DISTI... ${$wpdb-&gt;posts}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wmetier.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="3096" column="0" lean-forward="true" selection-start-line="3096" selection-start-column="0" selection-end-line="3096" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/page-register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/template-parts/content-about.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/widgets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="616" column="9" lean-forward="false" selection-start-line="616" selection-start-column="9" selection-end-line="616" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/login-form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="25" column="57" lean-forward="true" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/register-form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="33" column="57" lean-forward="false" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/license.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="15" lean-forward="false" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/000-default.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/init_db.sh" />
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/front-page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="25" column="47" lean-forward="false" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/people.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/validate.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/pluggable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57">
-          <caret line="1184" column="9" lean-forward="false" selection-start-line="1184" selection-start-column="9" selection-end-line="1184" selection-end-column="9" />
-          <folding>
-            <marker date="1513772684000" expanded="true" signature="3278:3324" ph="SELECT * FRO... wp_users" />
-            <marker date="1513772684000" expanded="true" signature="53267:53341" ph="SELECT count... wp_comments" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-admin/install-helper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -695,7 +566,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
           <caret line="1015" column="9" lean-forward="false" selection-start-line="1015" selection-start-column="9" selection-end-line="1015" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -703,20 +573,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/page-payment-settings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="62" column="29" lean-forward="true" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -738,17 +594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4552">
           <caret line="10214" column="27" lean-forward="false" selection-start-line="10214" selection-start-column="27" selection-end-line="10214" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/link-template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="117" column="9" lean-forward="false" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
-          <folding>
-            <marker date="1513772684000" expanded="true" signature="54179:54227" ph="SELECT p.ID wp_posts" />
-            <marker date="1513772684000" expanded="true" signature="83160:83247" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -812,7 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="62" column="34" lean-forward="true" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -830,35 +674,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="319" column="198" lean-forward="false" selection-start-line="319" selection-start-column="198" selection-end-line="319" selection-end-column="198" />
-          <folding>
-            <marker date="1532963309213" expanded="true" signature="9279:9286" ph="×" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/admin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="36" column="48" lean-forward="false" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
-          <folding>
-            <marker date="1532963664398" expanded="true" signature="682:689" ph="×" />
-            <marker date="1532963664398" expanded="true" signature="1442:1449" ph="×" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/func/ListTableShow.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7710">
-          <caret line="521" column="70" lean-forward="false" selection-start-line="521" selection-start-column="62" selection-end-line="521" selection-end-column="70" />
-          <folding>
-            <marker date="1532963598192" expanded="true" signature="989:1024" ph="SELECT * FRO... $" />
-            <marker date="1532963598192" expanded="true" signature="1883:1925" ph="SELECT COUNT... $" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -866,37 +685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13755">
           <caret line="917" column="9" lean-forward="false" selection-start-line="917" selection-start-column="9" selection-end-line="917" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/func/newOrders.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1920">
-          <caret line="128" column="42" lean-forward="false" selection-start-line="128" selection-start-column="42" selection-end-line="128" selection-end-column="42" />
-          <folding>
-            <marker date="1533022887788" expanded="true" signature="4494:4522" ph="SELECT * FRO... wp_orders" />
-            <marker date="1533022887788" expanded="true" signature="4494:4626" ph="SELECT * FRO... wp_orders  . &quot; LEFT JOIN wp_deadline ON wp_orders.deadline=wp_deadline.short_name&quot; . &quot; WHERE wp_orders.id =&quot; ." />
-            <marker date="1533022887788" expanded="true" signature="4494:4647" ph="SELECT * FRO... ${$this-&gt;table}" />
-            <marker date="1533022887788" expanded="true" signature="5109:5270" ph="SELECT * FRO... ${$this-&gt;table}" />
-            <marker date="1533022887788" expanded="true" signature="5109:5287" ph="SELECT * FRO... ${$this-&gt;table}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/page-account-customer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="66" column="83" lean-forward="false" selection-start-line="66" selection-start-column="83" selection-end-line="66" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/page-order-2-steps.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1485">
-          <caret line="99" column="49" lean-forward="false" selection-start-line="99" selection-start-column="49" selection-end-line="99" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -907,30 +695,192 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wp-admin/includes/noop.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="37" column="9" lean-forward="false" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/option.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1288">
+          <caret line="29" column="9" lean-forward="false" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/link-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="3015" column="22" lean-forward="true" selection-start-line="3015" selection-start-column="22" selection-end-line="3015" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/zip/zip.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="304" column="41" lean-forward="false" selection-start-line="304" selection-start-column="41" selection-end-line="304" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="472">
+            <caret line="46" column="5" lean-forward="false" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/page-order-2-steps.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1075">
+          <caret line="218" column="0" lean-forward="false" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/single.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="28" column="30" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/page-successful.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/page-payment-settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/func/newOrders.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="129" column="36" lean-forward="true" selection-start-line="129" selection-start-column="36" selection-end-line="129" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/page-order-cabinet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="685">
-          <caret line="159" column="95" lean-forward="false" selection-start-line="159" selection-start-column="95" selection-end-line="159" selection-end-column="95" />
-          <folding>
-            <marker date="1533033065983" expanded="true" signature="6745:6922" ph="..." />
-            <marker date="1533033065983" expanded="true" signature="6772:6922" ph="..." />
-            <marker date="1533033065983" expanded="true" signature="6801:6846" ph="..." />
-            <marker date="1533033065983" expanded="true" signature="6877:6922" ph="..." />
-            <marker date="1533033065983" expanded="true" signature="7155:7490" ph="..." />
-            <marker date="1533033065983" expanded="true" signature="7624:8194" ph="..." />
-            <marker date="1533033065983" expanded="true" signature="7653:7697" ph="..." />
-            <marker date="1533033065983" expanded="true" signature="7727:8184" ph="..." />
-            <marker date="1533033065983" expanded="true" signature="7761:8173" ph="..." />
-            <marker date="1533033065983" expanded="true" signature="7975:8045" ph="..." />
-            <marker date="1533033065983" expanded="true" signature="7975:8144" ph="..." />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="191" column="87" lean-forward="true" selection-start-line="191" selection-start-column="87" selection-end-line="191" selection-end-column="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/func/ListTableShow.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="696" column="74" lean-forward="false" selection-start-line="696" selection-start-column="74" selection-end-line="696" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/page-account-customer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="35" column="70" lean-forward="false" selection-start-line="35" selection-start-column="70" selection-end-line="35" selection-end-column="70" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/page-order-invoice.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="13" column="5" lean-forward="false" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        <state relative-caret-position="375">
+          <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="15" lean-forward="false" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+          <folding>
+            <marker date="1532331994813" expanded="true" signature="18:217" ph="&lt;IfModule mod_rewrite.c&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/people.txt" />
+    <entry file="file://$PROJECT_DIR$/validate.txt" />
+    <entry file="file://$PROJECT_DIR$/robots.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/license.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="80" column="85" lean-forward="false" selection-start-line="80" selection-start-column="28" selection-end-line="80" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/func/enqueues.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="766">
+          <caret line="503" column="0" lean-forward="false" selection-start-line="503" selection-start-column="0" selection-end-line="503" selection-end-column="0" />
+          <folding>
+            <marker date="1534343569390" expanded="true" signature="9279:9286" ph="×" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="839">
+          <caret line="156" column="63" lean-forward="false" selection-start-line="156" selection-start-column="63" selection-end-line="156" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/wmetier/front-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="32" column="28" lean-forward="false" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

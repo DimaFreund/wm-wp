@@ -694,7 +694,7 @@ function custom_detail_page() {
 						echo '<div class="updated"><p>Сохранено.</p></div>';
 					}
 					?>
-					<?php $arr_status = array( 'IN PROGRESS', 'CANCELED', 'NEW', 'DONE' ); ?>
+					<?php $arr_status = array( 'Available', 'Preparing', 'Completed', 'Unpaid', 'Revision', 'Refund', 'Cancelled' ); ?>
                     <div class="cell statusCell">
                         <select name="status" id="for-status-order-admin">
 							<?php foreach ( $arr_status as $item ) { ?>

@@ -31,7 +31,6 @@ get_header(); ?>
                         <p class="text-desc">
                             <?php echo get_field('text1'); ?>
                         </p>
-                        <a href="<?php echo get_permalink(23); ?>" class="btn-transparent">order now</a>
                     </div>
                     <div data-depth="0.2" class="img-wrapper">
                         <img src="<?php echo get_field('image'); ?>" alt="">

@@ -468,10 +468,7 @@ if(!empty($_POST)) {
 		'User-Agent:Your company name'
 ));
 $res = curl_exec($ch);
-var_dump('-----------------',$res,'-----',curl_error($ch), '----', curl_errno($ch));
 
-	$tokens = explode("\r\n\r\n", trim($res));
-	$res = trim(end($tokens));
 	if ($res == "VERIFIED"){
 
         global $wpdb;
@@ -488,5 +485,19 @@ var_dump('-----------------',$res,'-----',curl_error($ch), '----', curl_errno($c
 if(isset($_POST['wp_multi_file_uploader']) && isset($_GET['id'])) {
     global $wpdb;
 
-    $wpdb->update('wp_orders', ['upload_file_front' => serialize($_POST['wp_multi_file_uploader'])], ['id' => $_GET['id']]);
+    $wpdb->update('wp_orders', ['upload_file_user' => serialize($_POST['wp_multi_file_uploader'])], ['id' => $_GET['id']]);
 }
+
+add_action( 'wp_default_scripts', 'move_jquery_into_footer' );
+
+function move_jquery_into_footer( $wp_scripts ) {
+
+	if( is_admin() ) {
+		return;
+	}
+
+	$wp_scripts->add_data( 'jquery', 'group', 1 );
+	$wp_scripts->add_data( 'jquery-core', 'group', 1 );
+	$wp_scripts->add_data( 'jquery-migrate', 'group', 1 );
+}
+

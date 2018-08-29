@@ -59,22 +59,22 @@ get_header(); ?>
 								<?= $order->description; ?>
 							</p>
 						</div>
-						<div class="c_order_topic_main">
-							<div class="c_order_topic_headers">
-								<pre>Topic</pre>
-								<h4>Synonyms for topic at Thesaurus</h4>
-							</div>
-							<br>
-							<pre>Instructions</pre>
-							<p>
-								Myers was surprisingly candid about that last topic. Conversations on a presidential level about the topic are expected to come Friday, but many feel a change will not be made this week. <br>
-								The only way this will change is by having more conversations about this topic,
-								Myers was surprisingly candid about that last topic.
-								Conversations on a presidential level about the topic are expected to come Friday, but many feel a change will not be made this week.
-							</p>
-						</div>
+<!--						<div class="c_order_topic_main">-->
+<!--							<div class="c_order_topic_headers">-->
+<!--								<pre>Topic</pre>-->
+<!--								<h4>Synonyms for topic at Thesaurus</h4>-->
+<!--							</div>-->
+<!--							<br>-->
+<!--							<pre>Instructions</pre>-->
+<!--							<p>-->
+<!--								Myers was surprisingly candid about that last topic. Conversations on a presidential level about the topic are expected to come Friday, but many feel a change will not be made this week. <br>-->
+<!--								The only way this will change is by having more conversations about this topic,-->
+<!--								Myers was surprisingly candid about that last topic.-->
+<!--								Conversations on a presidential level about the topic are expected to come Friday, but many feel a change will not be made this week.-->
+<!--							</p>-->
+<!--						</div>-->
 					</div>
-					<button class="btn-transp-withoutBorder">Show more</button>
+<!--					<button class="btn-transp-withoutBorder">Show more</button>-->
 				</div>
 			</div>
 			<div class="sidebar">
@@ -103,7 +103,7 @@ get_header(); ?>
 						</div>
 					</div>
 					<script>
-                        var time = <?= Orders::getDeadlineSecond($order) - time(); ?>//2 часа в МС
+                        var time = <?= (Orders::getDeadlineSecond($order) - time())*1000; ?>//2 часа в МС
                         function getTime(time){
                             //if (time == 0) {
                             //   document.getElementById("YOUR_SELECTOR").style.opacity = "0";
@@ -113,7 +113,7 @@ get_header(); ?>
                             function Clock(){
                                 var now = new Date().getTime();// нынешнее время
                                 var distance = countDownDate - now;//
-                                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));//
+                                var hours = Math.floor(((distance / (24 * 60 * 60 * 1000)) * 24 * 60) / 60);//
                                 //                          if (hours < 10) {
                                 //                            hours = '0'+ hours;
                                 //                          };
@@ -125,6 +125,11 @@ get_header(); ?>
                                 //                          if (seconds < 10) {
                                 //                            seconds = '0'+ seconds;
                                 //                          };
+                                if (distance <= 0){
+                                  hours = 0;
+                                  minutes = 0;
+                                  seconds = 0;
+                                }
                                 document.getElementById("timer_hours").innerHTML = hours ;//
                                 document.getElementById("timer_minutes").innerHTML = minutes ;
                                 document.getElementById("timer_seconds").innerHTML = seconds ;
@@ -158,7 +163,12 @@ get_header(); ?>
 					</div>
 					<div class="c_order_prefer_buttons">
 						<a class="btn-transp-withoutBorder" href="<?= get_permalink(284) .'?id='. $_GET['id']; ?>">view invoice</a>
-						<a href="#" class="pink-btn c_order_btn">pay now</a>
+                        <?php if($order->status == 'Unpaid') { ?>
+                        <form class="paypal" action="<?php echo the_permalink(235); ?>" method="post" id="paypal_form" target="_blank">
+                            <input type="hidden" name="orderID" value="<?php if(isset($_GET['id'])) echo $_GET['id']; ?>">
+                            <a onclick="document.getElementById('paypal_form').submit(); return false;" href="#" class="pink-btn c_order_btn">pay now</a>
+                        </form>
+                        <?php } ?>
 					</div>
 				</div>
 			</div>
@@ -176,10 +186,12 @@ get_header(); ?>
 					</form>
 					<div class="cwb_uploaded_files">
 						<?php $files = unserialize($order->upload_file_user); ?>
-						<?php foreach($files as $fileID) { ?>
-							<?php $file = get_post($fileID); ?>
-                            <div class="cwb_filename"><a target="_blank" href="<?= wp_get_attachment_url($fileID); ?>"><?= $file->post_title; ?></a></div>
-						<?php } ?>
+                        <?php if(!empty($files)) { ?>
+						    <?php foreach($files as $fileID) { ?>
+							    <?php $file = get_post($fileID); ?>
+                                <div class="cwb_filename"><a target="_blank" href="<?= wp_get_attachment_url($fileID); ?>"><?= $file->post_title; ?></a></div>
+						    <?php }
+                        } ?>
 
 					</div>
 					<button class="btn-transp-withoutBorder hideMoreFiles">Show more files</button>
@@ -192,18 +204,24 @@ get_header(); ?>
 				<div class="cwb_wrapper">
 					<div class="download_files">
                         <?php $files = unserialize($order->upload_file); ?>
-                        <?php foreach($files as $fileID) { ?>
-                            <?php $file = get_post($fileID); ?>
-						<div>
-							<span><?= $file->post_title; ?></span><a target="_blank" href="<?= wp_get_attachment_url($fileID); ?>" class="btn-transp-withoutBorder">Download</a>
-						</div>
-						<?php } ?>
+                        <?php if(!empty($files)) { ?>
+                            <?php foreach($files as $fileID) { ?>
+                                <?php $file = get_post($fileID); ?>
+						    <div>
+						    	<span><?= $file->post_title; ?></span><a target="_blank" href="<?= wp_get_attachment_url($fileID); ?>" class="btn-transp-withoutBorder">Download</a>
+						    </div>
+						    <?php } ?>
+                        <?php } else { ?>
+                            <div><span>Still nothing uploaded, please, wait.</span></div>
+                        <?php } ?>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<button class="btn-to-top"></button>
+
+
 </main>
 
 

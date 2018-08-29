@@ -15,19 +15,18 @@ $order = Orders::getOneOrder( $orderId );
 //$paypalEmail = get_field('paypalemail');
 $paypalEmail = get_field('paypalemail');
 if(get_field('test_mod')) {
-	$paypalURL = "https://sandbox.paypal.com/cgi-bin/webscr";
+	$paypalURL = "https://www.sandbox.paypal.com/cgi-bin/webscr";
 } else {
-	$paypalURL = "https://paypal.com/cgi-bin/webscr";
+	$paypalURL = "https://www.paypal.com/cgi-bin/webscr";
 }
 $price = $order->price;
 $itemName = "Upgrade account";
-$returnUrl = "http://wmetier.page.ua/return";
-$cancelUrl = "http://wmetier.page.ua/cancel";
-$notifyUrl = "http://wmetier.page.ua/notify?notify";
+$returnUrl = get_field('successful');
+$cancelUrl = get_field('unsuccessful');
+$notifyUrl = get_home_url() . "/notify?notify";
 
 
 
-$querystring = 'cmd=_notify-validate';
 
 $querystring .= "?business=" . urlencode($paypalEmail) . "&";
 
@@ -54,13 +53,7 @@ $querystring .= "state=" . urlencode('Bill County'). '&';
 $querystring .= "country=" . urlencode('UK'). '&';
 $querystring .= "zip=" . urlencode('NE23 1HU'). '&';
 
-//мы не используем этот код – но он нужен, если отправляются какие-то данные из формы
-/* foreach ($_POST as $key => $value) {
-	$value = urlencode(stripslashes($value));
-	$querystring .= "$key=$value&";
-} */
 
-//Добавление адресов возврата
 $querystring .= "return=" . urlencode(stripslashes($returnUrl)) . "&";
 $querystring .= "cancel_return=" . urlencode(stripslashes($cancelUrl)) . "&";
 $querystring .= "notify_url=" . urlencode($notifyUrl);

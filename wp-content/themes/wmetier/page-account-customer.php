@@ -17,7 +17,12 @@ get_header(); ?>
 <?php
 
 $obj = new Orders();
-$results = $obj->getOrdersUser(get_current_user_id());
+if(isset($_GET['status'])) {
+    $status = $_GET['status'];
+} else {
+    $status = 'all';
+}
+$results = $obj->getOrdersUser(get_current_user_id(), $status);
 
 
 ?>
@@ -26,9 +31,9 @@ $results = $obj->getOrdersUser(get_current_user_id());
         <div class="wrapper">
             <h1>Orders</h1>
             <div class="orders_switch">
-                <button class="orders_switch_btn orders_switch_btn_active">Unpaid</button>
-                <button class="orders_switch_btn">Active</button>
-                <button class="orders_switch_btn">Completed</button>
+                <a href="<?php the_permalink(97); ?>/?status=Unpaid" class="orders_switch_btn orders_switch_btn_active">Unpaid</a>
+                <a href="<?php the_permalink(97); ?>/?status=Active" class="orders_switch_btn">Available</a>
+                <a href="<?php the_permalink(97); ?>/?status=Completed" class="orders_switch_btn">Completed</a>
             </div>
             <div class="orders-section">
                 <div class="rowTitle-ordersSection">

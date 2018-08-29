@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="VPS_WM" createEmptyFolders="true" autoUploadExternalChanges="true">
+  <component name="PublishConfigData" autoUpload="Always" serverName="WritingMetierProduction" createEmptyFolders="true" autoUploadExternalChanges="true">
     <serverData>
       <paths name="DO">
         <serverdata>
@@ -21,6 +21,19 @@
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
+        </serverdata>
+      </paths>
+      <paths name="WritingMetierProduction">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/wp-config.php" />
+            <excludedPath path="/wp-config.php" />
+            <excludedPath local="true" path="$PROJECT_DIR$/wp-content/themes/wmetier/css/style.css" />
+            <excludedPath path="/wp-content/themes/wmetier/css/style.css" />
+          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>

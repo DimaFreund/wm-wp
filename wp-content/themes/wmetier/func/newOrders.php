@@ -42,7 +42,7 @@ class Orders{
                 'deadline' => (isset($title[$request['deadline']]) && !empty($title[$request['deadline']]))?$title[$request['deadline']]: false,
                 'pages' => (isset($request['pages']) && !empty($request['pages']))?$request['pages']: false,
                 'data_create' => date("Y-m-d H:i:s"),
-                'status' => 'new',
+                'status' => 'Unpaid',
 	            'promocod' => (isset($request['promocod']) && !empty($request['promocod']))? $request['promocod']: false,
 	            'special_writer' => (isset($request['special_writer']) && $request['special_writer'] === 'on')?true:false,
 	            'plagiat_report' => (isset($request['plagiat_report']) && $request['plagiat_report'] === 'on')?true:false,
@@ -120,9 +120,16 @@ class Orders{
 	    }
     }
 
-    function getOrdersUser($id){
+    function getOrdersUser($id, $status = 'all'){
         global $wpdb;
-        $newtable = $wpdb->get_results( "SELECT * FROM " . $this->table  . " LEFT JOIN wp_deadline ON wp_orders.deadline=wp_deadline.short_name" . " WHERE wp_orders.client_id =" . "'" . esc_sql($id). "' ORDER BY id DESC");
+        $sql = "SELECT * FROM " . $this->table  . " LEFT JOIN wp_deadline ON wp_orders.deadline=wp_deadline.short_name";
+        $sql .= " WHERE wp_orders.client_id =" . "'" . esc_sql($id) . "'";
+        if($status != 'all') {
+        	$sql .= " AND status ='" . esc_sql($status). "'";
+        }
+        $sql .= " ORDER BY id DESC";
+        echo $sql;
+        $newtable = $wpdb->get_results( $sql);
         return $newtable;
     }
 

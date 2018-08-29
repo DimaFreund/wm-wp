@@ -8636,58 +8636,94 @@ textarea {
 }
 
 .cwb_upload_form {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.cwb_upload_form input[type='file'] {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start; }
+  .cwb_upload_form ul.unstyled {
+    margin-bottom: 0;
+    width: 72%; }
+    .cwb_upload_form ul.unstyled .qq-upload-button {
+      width: 100% !important;
+      padding: 20px 5px 20px 25px !important;
+      background-color: #e7e9f6;
+      border: none;
+      border-bottom-left-radius: 3px;
+      border-top-left-radius: 3px;
+      font-family: 'Noto Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: #abaec6;
+      margin-right: -5px;
+      position: relative; }
+  .cwb_upload_form input[type='file'] {
     opacity: 0;
-    height: 0px;
-    width: 0px;
-    background-color: transparent;
-}
-
-.cwb_upload_form input[type='text'] {
-    background-color: #e7e9f6;
-    padding: 17px 5px 19px 25px;
-    border: none;
-    border-bottom-left-radius: 3px;
-    border-top-left-radius: 3px;
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    color: #abaec6;
-    margin-right: -5px;
-    width: 72%;
-}
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    background-color: transparent; }
 
 .cwb_masked_input {
-    background-color: #f83d70;
-    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    text-transform: uppercase;
-    color: #fff;
-    font-family: "Montserrat", sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    text-align: center;
-    padding: 20px 15px;
-    border-bottom-right-radius: 3px;
-    border-top-right-radius: 3px;
-}
+  background-color: #e7e9f6;
+  padding: 22px 5px 13px 25px;
+  border: none;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #abaec6;
+  margin-right: -5px;
+  width: 72%;
+  position: relative; }
 
-.cwb_masked_input:hover {
+input[type="submit"] {
+  background-color: #f83d70;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  color: #fff;
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  position: relative;
+  font-weight: 700;
+  text-align: center;
+  padding: 20px 15px;
+  border-color: rgba(0, 0, 0, 0);
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  height: 56px; }
+  input[type="submit"]:hover {
     cursor: pointer;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
+    box-shadow: none; }
 
 .cwb_filename {
-    margin-bottom: 15px;
-    font-family: "Montserrat", sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-}
+  margin-bottom: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 700; }
+  .cwb_filename a {
+    color: #404040;
+    text-decoration: none; }
+
+.qq-upload-list {
+  margin-left: 0;
+  list-style-type: none;
+  width: 135%; }
+
+.qq-upload-success {
+  border: none !important;
+  background-color: transparent !important; }
+  .qq-upload-success span {
+    color: #404040 !important;
+    font-weight: 700 !important;
+    line-height: 18px !important;
+    font-size: 18px !important; }
+  .qq-upload-success::before {
+    display: none !important; }
 
 .cwb_uploaded_files {
     height: 60px;
@@ -8812,7 +8848,8 @@ textarea {
     font-weight: 500;
     padding: 13px 18px;
     border-radius: 5px;
-    width: 70px;
+    min-width: 70px;
+    width: auto;
     text-align: center;
 }
 
@@ -9355,13 +9392,13 @@ textarea {
         margin-bottom: 20px;
     }
 
-    .cwb_upload_form input[type='file'] {
+/*     .cwb_upload_form input[type='file'] {
         display: none;
-    }
+    } */
 
-    .cwb_upload_form input[type='text'] {
+/*     .cwb_upload_form input[type='text'] {
         width: auto;
-    }
+    } */
 }
 
 @media only screen and (max-width: 620px) {
@@ -9549,7 +9586,7 @@ textarea {
 
     .timer_numbers {
         font-size: 20px;
-        width: 55px;
+        min-width: 55px;
         padding: 13px 16px;
     }
 
@@ -10203,7 +10240,22 @@ textarea {
         align-items: center;
         margin-top: 20px; }
     .c_order_prefer_buttons a:nth-child(1) {
-        margin-bottom: 20px; } }
+        margin-bottom: 20px; }
+.cwb_upload_form ul.unstyled .qq-upload-button {
+    padding: 20px 5px !important; }
+.cwb_upload_form input[type="submit"] {
+    padding: 20px 4px; }
+  .qq-upload-success span {
+    font-size: 15px !important; }
+.qq-upload-list {
+    width: 170% !important; }
+    .qq-upload-list li {
+      padding: 5px 0 !important;
+      margin-bottom: 0 !important; }
+.cwb_upload_form ul.unstyled {
+    width: 55% !important; }
+}
+
 
 @media only screen and (min-width: 1100px) {
     .moreDetailsBtn, .dateForm, .dateTo {

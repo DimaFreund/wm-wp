@@ -153,13 +153,9 @@
     </div>
     <div class="n_footer_part_2">
         <div class="n_footer_part_2_menu_wrapper">
-            <ul>
-                <li><a href="#">Terms and conditions</a></li>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Revision</a></li>
-                <li><a href="#">Refund</a></li>
-                <li><a href="#">Cookie</a></li>
-            </ul>
+            <nav>
+	            <?php wp_nav_menu( array('menu' => 'footer-menu' )); ?>
+            </nav>
         </div>
         <div class="n_footer_part_2_content">
             <div class="n_footer_part_2_content_wrapper">
